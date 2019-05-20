@@ -1,12 +1,17 @@
 
 @import "bootstrap";
 
+
 .clear {
   clear: both;
 }
 
 .my_headline_font_size {
   font-size: 24px;
+}
+.modal {
+  display: none; /* Hidden by default */
+
 }
 
 .circle {
@@ -37,6 +42,11 @@
   font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
   font-style: italic;
   padding-top: 26px;
+}
+
+    .about {
+  font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+
 }
 
     .footer-blurb {

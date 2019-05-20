@@ -3,41 +3,65 @@
   <head>
     <title>Splurty</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header class="row">
-      <div class="col-3">
-        <%= link_to root_path, class: 'logo' do %>
-        <div class="circle">
-          <br />
-            You know
-          <br />
-            you need
-          <br />
-            to code
+<header class="row">
+  <div class="col-3">
+    <%= link_to root_path, class: 'logo' do %>
+      <div class="circle">
+        <br />
+        You know
+        <br />
+        you need
+        <br />
+        to code
+      </div>
+    <% end %>
+  </div>
+  <div class="col-4 slogan">
+    Splurting out unsolicited advice about entrepreneurship since 2016
+  </div>
+  <div class="col-5 links">
+        <!-- Button trigger modal -->
+    <%= link_to 'Contribute', '#', data: {toggle: 'modal', target: '#myModal'} %>
+    <%= link_to 'About', about_path %>
+  </div>
+</header>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Contribute Your Quote</h4>
+          </div>
+          <div class="modal-body">
+      <%= simple_form_for Quote.new do |f| %>
+        <div class="modal-body">
+          <%= f.input :saying %>
+          <%= f.input :author %>
         </div>
-        <% end %>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'Create', class: 'btn btn-danger' %>
+        </div>
+      <% end %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="col-4 slogan">
-        Splurting out unsolicited advice about entrepeneurship since 2016.
-      </div>
-
-      <div class="col-5 links">
-        <%= link_to 'contribute', new_quote_path %>
-        <%= link_to 'about', about_path %>
-      </div>
-
-    </header>
 
     <hr />
-
-
     <br class="clear" />
 
     <div class="container">
@@ -46,23 +70,22 @@
           <%= flash[:error].html_safe %>
         </div>
       <% end %>
-    <%= yield %>
+      <%= yield %>
     </div>
-   
 
     <div class="footer">
       <div class="container">
         <div class="row">
           <div class="col-6">
-            <%= link_to "this isn't enough, I need more", root_path, class: 'next-quote' %>
+            <%= link_to "This isn't enough, I need more", root_path, class: 'next-quote' %>
           </div>
           <div class="col-6 footer-blurb">
-            Course practice project by <a href="https://imintseng.netlify.com/"> Imin Tseng </a><br/>
-            Want to build your own Splurty Web App - <a href="https://online.bootcampspot.com">Learn how to code here</a>
+            Proudly hacked by <a href="[YOUR_PORTFOLIO_URL]">[Your name here]</a><br />
+             Want to build your own Splurty Web App - <a href="https://online.bootcampspot.com">Learn how to code here</a>
           </div>
         </div>
-       </div>
-    </div>   
+      </div>
+    </div>
 
   </body>
 </html>
